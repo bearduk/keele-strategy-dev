@@ -1,6 +1,6 @@
 :root {
   --keele-blue: #271e3d;
-  --keele-blue-deep: #1c1630;
+  --keele-blue-deep: #271e3d;
   --keele-blue-mid: #174872;
   --keele-blue-bright: #005d8f;
   --text: #1f2440;
@@ -90,9 +90,27 @@ main#top:focus {
 }
 
 .page-shell {
+  position: relative;
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
   padding-bottom: 4rem;
+}
+
+.page-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 8rem;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(247, 248, 251, 0.95), rgba(247, 248, 251, 0.78));
+  z-index: 0;
+}
+
+.page-shell > * {
+  position: relative;
+  z-index: 1;
 }
 
 .site-header {
@@ -106,26 +124,15 @@ main#top:focus {
   padding: 1rem 1rem;
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(247, 248, 251, 0.95), rgba(247, 248, 251, 0.78));
-  box-shadow: 0 18px 42px rgba(39, 30, 61, 0.12);
   backdrop-filter: blur(14px);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.65rem;
   color: var(--keele-blue);
   text-decoration: none;
-}
-
-.brand-mark {
-  width: 22px;
-  height: 22px;
-  flex: 0 0 22px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23271e3d'%3E%3Cpath d='M12 3.2 3 10.4v10.4h6.2v-6.5h5.6v6.5H21V10.4L12 3.2Zm7.2 15.6h-2.6v-6.5H7.4v6.5H4.8v-7.4L12 5.8l7.2 5.6v7.4Z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .brand-logo {
@@ -139,9 +146,11 @@ main#top:focus {
   display: inline-block;
   padding-left: 0.85rem;
   border-left: 1px solid rgba(39, 30, 61, 0.18);
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 0.86rem;
+  font-style: italic;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--keele-blue-bright);
   white-space: nowrap;
@@ -344,7 +353,7 @@ h1 {
 
 .button-primary {
   color: white;
-  background: linear-gradient(135deg, #1f719d, #4ca2cb);
+  background: linear-gradient(135deg, var(--keele-blue-mid), var(--keele-blue-bright));
   box-shadow: 0 12px 24px rgba(7, 20, 34, 0.32);
 }
 
@@ -708,7 +717,8 @@ details[open] summary::after {
 }
 
 .full-strategy-hero h1 {
-  max-width: 13ch;
+  max-width: none;
+  color: var(--keele-blue);
 }
 
 .full-strategy-layout {
