@@ -168,19 +168,66 @@ summary:focus-visible,
 
 .hero {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.82fr);
-  gap: 1.25rem;
-  align-items: stretch;
-  padding: 3rem 0 1.75rem;
+  left: 50%;
+  width: 100vw;
+  margin-top: 1.25rem;
+  margin-bottom: 2.5rem;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  min-height: min(88vh, 840px);
+  overflow: clip;
+  padding: 7.5rem 0 3rem;
+  background: var(--keele-blue-deep);
 }
 
 .hero::after {
   content: "";
   position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(15, 13, 25, 0.86) 0%, rgba(15, 13, 25, 0.48) 46%, rgba(23, 72, 114, 0.28) 100%),
+    linear-gradient(180deg, rgba(15, 13, 25, 0.16) 0%, rgba(15, 13, 25, 0.68) 100%);
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
   inset: auto 0 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(39, 30, 61, 0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  z-index: 3;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(232, 211, 218, 0.16), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(0, 93, 143, 0.18), transparent 20%);
+}
+
+.hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.82fr);
+  gap: 1.25rem;
+  align-items: end;
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
 }
 
 .hero-copy,
@@ -199,10 +246,11 @@ summary:focus-visible,
   padding: 3rem;
   border-radius: var(--radius-xl);
   background:
-    radial-gradient(circle at 86% 14%, rgba(232, 211, 218, 0.35), transparent 16%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 246, 250, 0.96));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+    radial-gradient(circle at 86% 14%, rgba(232, 211, 218, 0.22), transparent 16%),
+    linear-gradient(180deg, rgba(18, 18, 31, 0.76), rgba(18, 18, 31, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(6, 8, 16, 0.32);
+  backdrop-filter: blur(14px);
 }
 
 .hero-copy::after {
@@ -224,7 +272,7 @@ summary:focus-visible,
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--keele-blue-bright);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 h1,
@@ -239,6 +287,7 @@ h3 {
 h1 {
   font-size: clamp(3rem, 5.5vw, 5rem);
   letter-spacing: -0.03em;
+  color: white;
 }
 
 .hero-lead,
@@ -258,6 +307,7 @@ h1 {
   font-size: 1.08rem;
   max-width: 60ch;
   margin: 1.35rem 0 0;
+  color: rgba(255, 255, 255, 0.84);
 }
 
 .hero-actions {
@@ -286,14 +336,14 @@ h1 {
 
 .button-primary {
   color: white;
-  background: linear-gradient(135deg, var(--keele-blue), var(--keele-blue-mid));
-  box-shadow: 0 12px 24px rgba(39, 30, 61, 0.2);
+  background: linear-gradient(135deg, #1f719d, #4ca2cb);
+  box-shadow: 0 12px 24px rgba(7, 20, 34, 0.32);
 }
 
 .button-secondary {
-  color: var(--keele-blue);
-  background: white;
-  border: 1px solid var(--line-strong);
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .hero-panel {
@@ -303,9 +353,11 @@ h1 {
   gap: 1rem;
   padding: 1.2rem;
   border-radius: var(--radius-xl);
-  background: linear-gradient(180deg, var(--keele-blue), var(--keele-blue-deep));
+  background: linear-gradient(180deg, rgba(20, 24, 38, 0.72), rgba(20, 24, 38, 0.54));
   color: white;
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 60px rgba(6, 8, 16, 0.3);
+  backdrop-filter: blur(14px);
 }
 
 .hero-panel::after {
@@ -328,8 +380,8 @@ h1 {
   z-index: 1;
   padding: 1.25rem;
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .panel-label {
@@ -798,7 +850,7 @@ details[open] summary::after {
 }
 
 @media (max-width: 1100px) {
-  .hero,
+  .hero-inner,
   .priority-grid,
   .roadmap,
   .impact-strip,
@@ -875,7 +927,8 @@ details[open] summary::after {
   }
 
   .hero {
-    padding-top: 1.5rem;
+    min-height: auto;
+    padding: 5.75rem 0 2rem;
   }
 
   .hero-copy,
