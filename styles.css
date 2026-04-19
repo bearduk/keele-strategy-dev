@@ -226,7 +226,7 @@ summary:focus-visible,
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.82fr);
   gap: 1.25rem;
-  align-items: end;
+  align-items: start;
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
 }
@@ -348,7 +348,8 @@ h1 {
 }
 
 .hero-panel {
-  position: relative;
+  position: sticky;
+  top: 7.25rem;
   overflow: hidden;
   display: grid;
   gap: 1rem;
@@ -889,8 +890,9 @@ details[open] summary::after {
     display: none;
   }
 
-  .hero-copy h1 {
-    max-width: none;
+  .hero-panel {
+    position: relative;
+    top: auto;
   }
 }
 
