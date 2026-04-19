@@ -171,16 +171,16 @@ summary:focus-visible,
 
 .hero {
   position: relative;
-  left: 50%;
-  width: 100vw;
+  width: auto;
   margin-top: 1.25rem;
   margin-bottom: 2.5rem;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   min-height: min(88vh, 840px);
-  overflow: clip;
+  overflow: hidden;
   padding: 7.5rem 0 3rem;
   background: var(--keele-blue-deep);
+  isolation: isolate;
 }
 
 .hero::after {
