@@ -97,15 +97,16 @@ main#top:focus {
 
 .site-header {
   position: sticky;
-  top: 0;
+  top: 0.75rem;
   z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   padding: 1rem 1rem;
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  border-radius: 999px;
   background: linear-gradient(180deg, rgba(247, 248, 251, 0.95), rgba(247, 248, 251, 0.78));
+  box-shadow: 0 18px 42px rgba(39, 30, 61, 0.12);
   backdrop-filter: blur(14px);
 }
 
@@ -911,6 +912,7 @@ details[open] summary::after {
     position: static;
     flex-direction: column;
     align-items: stretch;
+    border-radius: var(--radius-xl);
   }
 
   .site-nav {
