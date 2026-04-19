@@ -97,7 +97,8 @@ summary:focus-visible,
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   background: linear-gradient(180deg, rgba(247, 248, 251, 0.95), rgba(247, 248, 251, 0.78));
   backdrop-filter: blur(14px);
 }
