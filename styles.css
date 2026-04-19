@@ -653,7 +653,7 @@ details[open] summary::after {
   font-weight: 700;
   color: var(--keele-blue);
   background: rgba(255, 255, 255, 0.94);
-  border-radius: 999px;
+  border-radius: var(--radius-xl);
   cursor: pointer;
   transition: background-color 180ms ease, transform 180ms ease, color 180ms ease, border-color 180ms ease;
 }
